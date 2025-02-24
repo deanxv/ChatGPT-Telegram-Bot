@@ -621,7 +621,8 @@ async def inlinequery(update: Update, context) -> None:
         prompt = "Answer the following questions as concisely as possible:\n\n"
         _, _, _, chatid, _, _, _, _, convo_id, _, _, _ = await GetMesageInfo(update, context)
         robot, role, api_key, api_url = get_robot(convo_id)
-        result = config.ChatGPTbot.ask(prompt + query, convo_id=convo_id, model=engine, api_url=api_url, api_key=api_key, pass_history=0)
+        # result = config.ChatGPTbot.ask(prompt + query, convo_id=convo_id, model=engine, api_url=api_url, api_key=api_key, pass_history=0)
+        result = config.ChatGPTbot.ask(prompt, convo_id=convo_id, model=engine, api_url=api_url, api_key=api_key, pass_history=0)
 
         results = [
             InlineQueryResultArticle(
